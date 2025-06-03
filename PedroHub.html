@@ -19,13 +19,14 @@
       text-align: center;
       user-select: none;
       box-shadow: 0 2px 10px rgba(0,0,0,0.5);
-      position: sticky;
+      position: fixed;
       top: 0;
+      left: 0;
+      right: 0;
       z-index: 1000;
       display: flex;
       align-items: center;
       justify-content: center;
-      position: relative;
     }
     .class-btn {
       position: absolute;
@@ -86,19 +87,16 @@
       color: #f90;
     }
     nav {
-    background: #1c1c1c;
-    display: flex;
-    justify-content: center;
-    padding: 1em 0;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.3);
-    position: fixed;
-    top: 80px;
-    left: 0;
-    right: 0;
-    z-index: 999;
-  }
-  section {
-    padding-top: 160px;
+      background: #1c1c1c;
+      display: flex;
+      justify-content: center;
+      padding: 0.8em 0;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+      position: sticky;
+      top: 80px;
+      left: 0;
+      right: 0;
+      z-index: 999;
     }
     nav button {
       background: #333;
@@ -118,8 +116,8 @@
     }
     section {
       max-width: 1100px;
-      margin: 2em auto;
-      padding: 0 1em;
+      margin: 0 auto;
+      padding: 140px 1em 2em;
       display: none;
     }
     section.active {
@@ -127,8 +125,8 @@
     }
     .gallery {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 1.5em;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1em;
     }
     .gallery img,
     .gallery video {
@@ -142,6 +140,9 @@
     .gallery img:hover,
     .gallery video:hover {
       transform: scale(1.03);
+    }
+    .gallery img {
+      cursor: pointer;
     }
     video {
       background: #000;
@@ -165,51 +166,23 @@
     .footer-links a:hover {
       text-decoration: underline;
     }
-    <div class="gallery">
-  <img src="imagem1.jpg" onclick="abrirImagem(this)" />
-  <img src="imagem2.jpg" onclick="abrirImagem(this)" />
-</div>
-
-<div id="lightbox" class="lightbox" onclick="fecharImagem()">
-  <img id="lightbox-img" src="" />
-</div>
-
-<style>
-  .gallery img {
-    width: 280px;
-    height: auto;
-    cursor: pointer;
-  }
-
-  .lightbox {
-    display: none;
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.8);
-    justify-content: center;
-    align-items: center;
-  }
-
-  .lightbox img {
-    max-width: 80%;
-    max-height: 80%;
-    border-radius: 10px;
-  }
-</style>
-
-<script>
-  function abrirImagem(element) {
-    document.getElementById("lightbox-img").src = element.src;
-    document.getElementById("lightbox").style.display = "flex";
-  }
-
-  function fecharImagem() {
-    document.getElementById("lightbox").style.display = "none";
-  }
-</script>
+    .lightbox {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.8);
+      justify-content: center;
+      align-items: center;
+      z-index: 3000;
+    }
+    .lightbox img {
+      max-width: 80%;
+      max-height: 80%;
+      border-radius: 10px;
+    }
   </style>
 </head>
 <body>
@@ -241,79 +214,86 @@
     <button id="btn-fotos">Fotos</button>
   </nav>
 
-<section id="videos" class="active">
-  <div class="gallery">
-    <section id="videos" class="active">
-  <div class="gallery">
-    <video controls src="Video/20231201_160722.mp4"></video>
-    <video controls src="Video/677cc9e7bf20c80007f7e529.mp4"></video>
-    <video controls src="Video/VID-20231029-WA0040.mp4"></video>
-    <video controls src="Video/VID-20231113-WA0428.mp4"></video>
-    <video controls src="Video/VID-20231118-WA0003.mp4"></video>
-    <video controls src="Video/VID-20231119-WA0037.mp4"></video>
-    <video controls src="Video/VID-20231122-WA0284.mp4"></video>
+  <section id="videos" class="active">
+    <div class="gallery">
+      <video controls src="Video/20231201_160722.mp4"></video>
+      <video controls src="Video/677cc9e7bf20c80007f7e529.mp4"></video>
+      <video controls src="Video/VID-20231029-WA0040.mp4"></video>
+      <video controls src="Video/VID-20231113-WA0428.mp4"></video>
+      <video controls src="Video/VID-20231118-WA0003.mp4"></video>
+      <video controls src="Video/VID-20231119-WA0037.mp4"></video>
+      <video controls src="Video/VID-20231122-WA0284.mp4"></video>
+      <video controls src="Video/VID-20231122-WA0285.mp4"></video>
+      <video controls src="Video/VID-20231201-WA0348.mp4"></video>
+      <video controls src="Video/VID-20231202-WA0042.mp4"></video>
+      <video controls src="Video/VID-20240308-WA0167.mp4"></video>
+      <video controls src="Video/VID-20240308-WA0230.mp4"></video>
+      <video controls src="Video/VID-20240308-WA0233.mp4"></video>
+      <video controls src="Video/VID-20250219-WA0264.mp4"></video>
+      <video controls src="Video/VID-20250324-WA0028.mp4"></video>
+      <video controls src="Video/VID-20250324-WA0030.mp4"></video>
+      <video controls src="Video/VID-20250418-WA0453.mp4"></video>
+    </div>
+  </section>
 
-    
-  </div>
-</section>
+  <section id="fotos">
+    <div class="gallery">
+   <img src="img/20230918_105910.jpg" alt="Foto 1" onclick="openLightbox(this.src)">
+<img src="img/20231027_162749.jpg" alt="Foto 2" onclick="openLightbox(this.src)">
+<img src="img/20231201_175741.jpg" alt="Foto 3" onclick="openLightbox(this.src)">
+<img src="img/20231202_103929.jpg" alt="Foto 4" onclick="openLightbox(this.src)">
+<img src="img/20231202_103938.jpg" alt="Foto 5" onclick="openLightbox(this.src)">
+<img src="img/20231202_103947.jpg" alt="Foto 6" onclick="openLightbox(this.src)">
+<img src="img/20231202_103949.jpg" alt="Foto 7" onclick="openLightbox(this.src)">
+<img src="img/20231202_181746.jpg" alt="Foto 8" onclick="openLightbox(this.src)">
+<img src="img/20240220_160437.jpg" alt="Foto 9" onclick="openLightbox(this.src)">
+<img src="img/20240220_161118.jpg" alt="Foto 10" onclick="openLightbox(this.src)">
+<img src="img/20240220_161121.jpg" alt="Foto 11" onclick="openLightbox(this.src)">
+<img src="img/20240220_161127.jpg" alt="Foto 12" onclick="openLightbox(this.src)">
+<img src="img/20240220_161128.jpg" alt="Foto 13" onclick="openLightbox(this.src)">
+<img src="img/20241027_032301.jpg" alt="Foto 14" onclick="openLightbox(this.src)">
+<img src="img/20250530_210708.jpg" alt="Foto 15" onclick="openLightbox(this.src)">
+<img src="img/20250530_210728.jpg" alt="Foto 16" onclick="openLightbox(this.src)">
+<img src="img/20250530_210836.jpg" alt="Foto 17" onclick="openLightbox(this.src)">
+<img src="img/20250530_210854.jpg" alt="Foto 18" onclick="openLightbox(this.src)">
+<img src="img/IMG-20231209-WA0048.jpg" alt="Foto 19" onclick="openLightbox(this.src)">
+<img src="img/IMG-20231213-WA0294.jpg" alt="Foto 20" onclick="openLightbox(this.src)">
+<img src="img/IMG-20250201-WA0399.jpg" alt="Foto 21" onclick="openLightbox(this.src)">
+<img src="img/IMG-20250201-WA0400.jpg" alt="Foto 22" onclick="openLightbox(this.src)">
+<img src="img/IMG-20250201-WA0401.jpg" alt="Foto 23" onclick="openLightbox(this.src)">
+<img src="img/IMG-20250201-WA0403.jpg" alt="Foto 24" onclick="openLightbox(this.src)">
+<img src="img/IMG-20250201-WA0404.jpg" alt="Foto 25" onclick="openLightbox(this.src)">
+<img src="img/IMG-20250201-WA0405.jpg" alt="Foto 26" onclick="openLightbox(this.src)">
+<img src="img/IMG-20250201-WA0406.jpg" alt="Foto 27" onclick="openLightbox(this.src)">
+<img src="img/IMG-20250201-WA0407.jpg" alt="Foto 28" onclick="openLightbox(this.src)">
+<img src="img/IMG-20250201-WA0408.jpg" alt="Foto 29" onclick="openLightbox(this.src)">
+<img src="img/IMG-20250201-WA0410.jpg" alt="Foto 30" onclick="openLightbox(this.src)">
+<img src="img/IMG-20250208-WA0218.jpg" alt="Foto 31" onclick="openLightbox(this.src)">
+<img src="img/IMG-20250208-WA0219.jpg" alt="Foto 32" onclick="openLightbox(this.src)">
+<img src="img/IMG-20250219-WA0249.jpg" alt="Foto 33" onclick="openLightbox(this.src)">
+<img src="img/IMG-20250226-WA0448.jpg" alt="Foto 34" onclick="openLightbox(this.src)">
+<img src="img/IMG-20250227-WA0281.jpg" alt="Foto 35" onclick="openLightbox(this.src)">
+<img src="img/IMG-20250418-WA0454.jpg" alt="Foto 36" onclick="openLightbox(this.src)">
+<img src="img/IMG-20250418-WA0455.jpg" alt="Foto 37" onclick="openLightbox(this.src)">
+<img src="img/IMG-20250418-WA0456.jpg" alt="Foto 38" onclick="openLightbox(this.src)">
+<img src="img/IMG-20250418-WA0457.jpg" alt="Foto 39" onclick="openLightbox(this.src)">
+<img src="img/IMG-20250418-WA0458.jpg" alt="Foto 40" onclick="openLightbox(this.src)">
+<img src="img/IMG-20250418-WA0459.jpg" alt="Foto 41" onclick="openLightbox(this.src)">
+<img src="img/IMG-20250512-WA0551.jpg" alt="Foto 42" onclick="openLightbox(this.src)">
+<img src="img/IMG-20250512-WA0561.jpg" alt="Foto 43" onclick="openLightbox(this.src)">
+<img src="img/IMG-20250523-WA0280.jpeg" alt="Foto 44" onclick="openLightbox(this.src)">
+<img src="img/IMG-lmmh8nd6.jpg" alt="Foto 45" onclick="openLightbox(this.src)">
+<img src="img/IMG-ln1r2m44.jpg" alt="Foto 46" onclick="openLightbox(this.src)">
+<img src="img/Snapchat-713849713.jpg" alt="Foto 47" onclick="openLightbox(this.src)">
+<img src="img/Snapchat-901482789.jpg" alt="Foto 48" onclick="openLightbox(this.src)">
+<img src="img/Snapchat-2003014894.jpg" alt="Foto 49" onclick="openLightbox(this.src)">
 
-  </div>
-</section>
+    </div>
+  </section>
 
-
- <section id="fotos">
-  <div class="gallery">
-    <img src="img/20230918_105910.jpg" alt="Foto 1" />
-    <img src="img/20231027_162749.jpg" alt="Foto 2" />
-    <img src="img/20231201_175741.jpg" alt="Foto 3" />
-    <img src="img/20231202_103929.jpg" alt="Foto 4" />
-    <img src="img/20231202_103938.jpg" alt="Foto 5" />
-    <img src="img/20231202_103947.jpg" alt="Foto 6" />
-    <img src="img/20231202_103949.jpg" alt="Foto 7" />
-    <img src="img/20231202_181746.jpg" alt="Foto 8" />
-    <img src="img/20240220_160437.jpg" alt="Foto 9" />
-    <img src="img/20240220_161118.jpg" alt="Foto 10" />
-    <img src="img/20240220_161121.jpg" alt="Foto 11" />
-    <img src="img/20240220_161127.jpg" alt="Foto 12" />
-    <img src="img/20240220_161128.jpg" alt="Foto 13" />
-    <img src="img/20241027_032301.jpg" alt="Foto 14" />
-    <img src="img/20250530_210708.jpg" alt="Foto 15" />
-    <img src="img/20250530_210728.jpg" alt="Foto 16" />
-    <img src="img/20250530_210836.jpg" alt="Foto 17" />
-    <img src="img/20250530_210854.jpg" alt="Foto 18" />
-    <img src="img/IMG-20231209-WA0048.jpg" alt="Foto 19" />
-    <img src="img/IMG-20231213-WA0294.jpg" alt="Foto 20" />
-    <img src="img/IMG-20250201-WA0399.jpg" alt="Foto 21" />
-    <img src="img/IMG-20250201-WA0400.jpg" alt="Foto 22" />
-    <img src="img/IMG-20250201-WA0401.jpg" alt="Foto 23" />
-    <img src="img/IMG-20250201-WA0403.jpg" alt="Foto 24" />
-    <img src="img/IMG-20250201-WA0404.jpg" alt="Foto 25" />
-    <img src="img/IMG-20250201-WA0405.jpg" alt="Foto 26" />
-    <img src="img/IMG-20250201-WA0406.jpg" alt="Foto 27" />
-    <img src="img/IMG-20250201-WA0407.jpg" alt="Foto 28" />
-    <img src="img/IMG-20250201-WA0408.jpg" alt="Foto 29" />
-    <img src="img/IMG-20250201-WA0410.jpg" alt="Foto 30" />
-    <img src="img/IMG-20250208-WA0218.jpg" alt="Foto 31" />
-    <img src="img/IMG-20250208-WA0219.jpg" alt="Foto 32" />
-    <img src="img/IMG-20250219-WA0249.jpg" alt="Foto 33" />
-    <img src="img/IMG-20250226-WA0448.jpg" alt="Foto 34" />
-    <img src="img/IMG-20250227-WA0281.jpg" alt="Foto 35" />
-    <img src="img/IMG-20250418-WA0454.jpg" alt="Foto 36" />
-    <img src="img/IMG-20250418-WA0455.jpg" alt="Foto 37" />
-    <img src="img/IMG-20250418-WA0456.jpg" alt="Foto 38" />
-    <img src="img/IMG-20250418-WA0457.jpg" alt="Foto 39" />
-    <img src="img/IMG-20250418-WA0458.jpg" alt="Foto 40" />
-    <img src="img/IMG-20250418-WA0459.jpg" alt="Foto 41" />
-    <img src="img/IMG-20250512-WA0551.jpg" alt="Foto 42" />
-    <img src="img/IMG-20250512-WA0561.jpg" alt="Foto 43" />
-    <img src="img/IMG-20250523-WA0280.jpeg" alt="Foto 44" />
-    <img src="img/IMG-lmmh8nd6.jpg" alt="Foto 45" />
-    <img src="img/IMG-ln1r2m44.jpg" alt="Foto 46" />
-    <img src="img/Snapchat-713849713.jpg" alt="Foto 47" />
-    <img src="img/Snapchat-901482789.jpg" alt="Foto 48" />
-    <img src="img/Snapchat-2003014894.jpg" alt="Foto 49" />
-  </div>
-</section>
+ <div class="lightbox" id="lightbox" onclick="closeLightbox()">
+  <img id="lightbox-img" src="" alt="Imagem em destaque" />
+</div>
 
   <footer>
     PedroHub &copy; 2025 — Todos os direitos reservados<br />
@@ -371,8 +351,18 @@
     document.getElementById('menu-memes').addEventListener('click', () => {
       window.location.href = 'Memes/Memes.html';
     });
+
+    function openLightbox(src) {
+    const lightbox = document.getElementById('lightbox');
+    const lightboxImg = document.getElementById('lightbox-img');
+    lightboxImg.src = src;
+    lightbox.style.display = 'flex';
+  }
+
+  function closeLightbox() {
+    const lightbox = document.getElementById('lightbox');
+    lightbox.style.display = 'none';
+    }
   </script>
-
-
 </body>
 </html>
